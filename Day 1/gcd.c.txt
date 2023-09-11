@@ -1,0 +1,20 @@
+#include <stdio.h>
+#include <gmp.h>
+
+int main()
+{
+    mpz_t m,n,r;
+    
+    mpz_inits(m,n,r,NULL);
+    printf("Enter two numbers \n");
+    printf("Hello");
+    gmp_scanf("%Zd %Zd",m,n);
+    while(n>0){
+        mpz_mod(r,m,n);
+        mpz_set(m,n);
+        mpz_set(n,r);
+        
+    }
+    gmp_printf("The gcd of the two numbers is %Zd \n",m);
+   return 0;
+}

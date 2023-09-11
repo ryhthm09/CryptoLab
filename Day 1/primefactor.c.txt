@@ -1,0 +1,32 @@
+#include <stdio.h>
+#include<gmp.h>
+
+int main()
+{
+    
+    mpz_t n,factor,temp;
+    mpz_inits(n,factor,temp,NULL);
+    
+    gmp_printf("Enter the number for finding prime factor: ");
+    gmp_scanf("%Zd",n);
+    
+    mpz_set_si(factor,2);
+    mpz_set_si(temp,1);
+    
+    while(mpz_cmp(n,temp)){
+        
+        if(mpz_divisible_p(n,factor)){
+            
+            gmp_printf("%Zd\n",factor);
+            mpz_div(n,n,factor);
+        }
+        
+        else{
+           mpz_add(factor,factor,temp);
+        }
+        
+        
+    }
+
+    return 0;
+}

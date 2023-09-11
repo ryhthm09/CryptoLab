@@ -1,0 +1,22 @@
+#include <stdio.h>
+#include <gmp.h>
+#include <time.h>
+
+int main() {
+    gmp_randstate_t state;
+    gmp_randinit_default(state);
+
+    gmp_randseed_ui(state, time(NULL));
+
+    mpz_t prime;
+    mpz_init(prime);
+
+    mpz_urandomb(prime, state, 1024);
+    mpz_nextprime(prime, prime);
+
+    gmp_printf("Generated 1024-bit prime number:\n%Zd\n", prime);
+
+   
+
+    return 0;
+}
