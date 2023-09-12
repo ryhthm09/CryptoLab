@@ -3,13 +3,12 @@
 
 int main()
 {
-    mpz_t m,n,r;
+    mpz_t m,n,r,i;
     
-    mpz_inits(m,n,r,NULL);
+    mpz_inits(m,n,r,i,NULL);
     printf("Enter two numbers \n");
-    printf("Hello");
     gmp_scanf("%Zd %Zd",m,n);
-    while(n>0){
+    while(mpz_cmp(n,i)){
         mpz_mod(r,m,n);
         mpz_set(m,n);
         mpz_set(n,r);
